@@ -1,5 +1,6 @@
 package cn.wan.test;
 
+import cn.wan.reptile_acm.Login;
 import cn.wan.utils.TextUtil;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -94,4 +95,17 @@ public class TestAll {
         System.out.println(file.exists());
     }
 
+    @Test
+    public void testLogin() throws IOException {
+        Login login=new Login();
+        login.setHost("acm.sdut.edu.cn");
+        login.setUser_agent("Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E)");
+        login.setConnection("Keep-Alive");
+//        login.setCookie("Hm_lvt_ffc0a3cbaca7823cf2e81a8611a92d93=1481694587,1481713402,1481718353,1481719215; Hm_lpvt_ffc0a3cbaca7823cf2e81a8611a92d93=1481719215; _ga=GA1.3.368584434.1481453788; PHPSESSID=kdc746ck3d6u0p89sgc1b9vtg2; refer=http%3A%2F%2Facm.sdut.edu.cn%2Fonlinejudge2%2F");
+        login.setCookie("PHPSESSID=525;refer=http%3A%2F%2Facm.sdut.edu.cn%2Fonlinejudge2%2F");
+        CloseableHttpResponse response=login.signin("15110506042","kai525long810");
+        System.out.println(response);
+        System.out.println("-------------------------------------------");
+        System.out.println(EntityUtils.toString(response.getEntity(),"utf-8"));
+    }
 }

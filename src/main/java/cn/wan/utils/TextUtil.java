@@ -18,6 +18,7 @@ public class TextUtil {
                 case "&amp;":html=html.replaceAll(matcher.group(),"&"); break;
                 case "&quot;":html=html.replaceAll(matcher.group(),"\""); break;
                 case "&apos;":html=html.replaceAll(matcher.group(),"'"); break;
+                case "&#039;":html=html.replaceAll(matcher.group(),"'"); break;
             }
         }
         return html;
